@@ -33,12 +33,12 @@ const QuoteBox = () => {
   }, []);
 
   const fetchQuote = () => {
-    axios.get('https://goquotes-api.herokuapp.com/api/v1/random?count=1')
+    axios.get('https://api.quotable.io/random')
     .then(response => {
-      const quote = response.data.quotes[0];
+      const quote = response.data;
       setCurrentQuote({
         author: `- ${quote.author}`,
-        text: `❝${quote.text}❞`
+        text: `❝${quote.content}❞`
       });
       setLoading(false);
     })
