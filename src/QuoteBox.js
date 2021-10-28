@@ -68,7 +68,7 @@ const QuoteBox = () => {
       {
         isLoading ? 
         <Loader 
-          type="Ball-Triangle" 
+          type="TailSpin" 
           color="#8a2be2" 
           height={60} 
           width={60}
