@@ -1,9 +1,7 @@
 # Random Quote Generator
 
 It is a random quote generator that uses [public quote API](https://github.com/lukePeavey/quotable).\
-
 Designed and implemented by [Eugene Kiryk](https://github.com/eugenekiryk).\
-
 Bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Demo
