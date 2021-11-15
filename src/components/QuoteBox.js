@@ -7,18 +7,19 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 const useStyles = createUseStyles({
   quoteBox: {
-    font: '24px bold',
-    color: '#8a2be2',
-    backgroundColor: '#FFFAFA',
-    border: '2px solid',
-    borderRadius: '10px',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '2rem',
+    color: '#463f3a',
+    fontSize: '1.5rem',
+    fontFamily: 'inherit',
+    letterSpacing: '1.5px',
+    backgroundColor: '#ffffff',
+    boxShadow: '0 0 1rem #ccc',
     width: '50%',
-    margin: 'auto',
-    padding: '3%',
-    boxShadow: '0 0 4px #8a2be2',
+    padding: '3rem',
     "@media screen and (max-width: 1024px)": {
-      width: '80%',
-      marginBottom: '10vh'
+      width: '90%'
     }
   }
 });
@@ -34,21 +35,21 @@ const QuoteBox = () => {
 
   const fetchQuote = () => {
     axios.get('https://api.quotable.io/random')
-    .then(response => {
-      const quote = response.data;
-      setCurrentQuote({
-        author: `- ${quote.author}`,
-        text: `❝${quote.content}❞`
+      .then(response => {
+        const quote = response.data;
+        setCurrentQuote({
+          author: `- ${quote.author}`,
+          text: `❝${quote.content}❞`
+        });
+        setLoading(false);
+      })
+      .catch(error => {
+        setError({
+          status: true,
+          message: `Oops! ${error}`
+        });
+        setLoading(false);
       });
-      setLoading(false);
-    })
-    .catch(error => {
-      setError({
-        status: true,
-        message: `Oops! ${error}`
-      });
-      setLoading(false);
-    });
   }
 
   const handleRandomQuote = () => {
@@ -66,26 +67,26 @@ const QuoteBox = () => {
   return (
     <div className={classes.quoteBox}>
       {
-        isLoading ? 
-        <Loader 
-          type="TailSpin" 
-          color="#8a2be2" 
-          height={60} 
-          width={60}
-        />
-        : 
-        <>
-          { error.status ? 
-            <p>{error.message}</p>
-            :
-            <>
-              <p>{currentQuote.text}</p>
-              <p>{currentQuote.author}</p>
-            </>
-          }
-        </>
+        isLoading ?
+          <Loader
+            type="TailSpin"
+            color="#463f3a"
+            height={60}
+            width={60}
+          />
+          :
+          <>
+            {error.status ?
+              <p>{error.message}</p>
+              :
+              <>
+                <p>{currentQuote.text}</p>
+                <p>{currentQuote.author}</p>
+              </>
+            }
+          </>
       }
-      <Controls 
+      <Controls
         handleRandomQuote={handleRandomQuote}
         handleTweetQuote={handleTweetQuote}
         error={error.status}

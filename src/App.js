@@ -1,15 +1,17 @@
 import React from 'react';
-import QuoteBox from './QuoteBox';
+import QuoteBox from './components/QuoteBox';
 import { createUseStyles } from 'react-jss';
 
 const useStyles = createUseStyles({
   app: {
     display: 'flex',
     flexDirection: 'column',
+    alignItems: 'center',
     textAlign: 'center',
     "& h1": {
-      color: '#fcac3d'
-    }
+      color: '#212529'
+    },
+    height: '100vh'
   }
 });
 
@@ -22,6 +24,6 @@ const App = () => {
       <QuoteBox />
     </div>
   );
-} 
+}
 
 export default App;
