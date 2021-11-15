@@ -25,7 +25,7 @@ Builds the app for production to the `build` folder.\
 
 ## Technologies used
 
-- CSS in JS (react-jss), [learn more](https://cssinjs.org/).
+- CSS-in-JS (react-jss), [learn more](https://cssinjs.org/).
 - JavaScript
 - Axios for data fetching
 - React Hooks
