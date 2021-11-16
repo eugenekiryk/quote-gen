@@ -8,10 +8,11 @@ const useStyles = createUseStyles({
     flexDirection: 'column',
     alignItems: 'center',
     textAlign: 'center',
+    marginBottom: '10%',
     "& h1": {
       color: '#212529'
     },
-    height: '100vh'
+    height: '100%'
   }
 });
 

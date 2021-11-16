@@ -18,7 +18,6 @@ const useStyles = createUseStyles({
     boxShadow: '0 0 1rem #ccc',
     width: '50%',
     padding: '3rem',
-    marginBottom: '10%',
     "@media screen and (max-width: 1024px)": {
       width: '90%'
     }
